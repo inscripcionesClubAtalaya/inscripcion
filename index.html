@@ -71,7 +71,7 @@
         <p><strong>Correo Electrónico:</strong> ${email}</p>
         <p><strong>Tipo de Membresía:</strong> ${tipoMembresia}</p>`
         
-            // Configura los parámetros para SMTPJS
+            // Manda email al club
             Email.send({
                 Host: "smtp.elasticemail.com",
                 Username: "garzi_06@hotmail.com",
@@ -85,6 +85,27 @@
                     alert('Te has inscrito correctamente. \n Gracias por colaborar con el Club Atalaya.');
                 }
             );
+
+            var mensajeInscripción = `  <h2>${nombre}, gracias por inscribirte como ${tipoMembresia} del Club Atalaya.</h2>`
+            if(tipoMembresia =='amigo' || tipoMembresia =='socio'){
+                let valorInscripción = tipoMembresia == 'amigo' ? 6 : 12;
+                mensajeInscripción += `<p>Para colaborar económicamente con nosotros al inscribirte, debes realizar una transferencia periódica de ${valorInscripción} mensuales al número de cuenta ES9720383013326000046096 </p>`
+                mensajeInscripción += `<p>Con tu aportación colaboras al mantenimiento del club y a que se pueda continuar realizando actividades</p>`
+            }
+
+            mensajeInscripción += `<p>Esperamos verte pronto</p>Un cordial saludo<br>Club Atalaya Ateneo de la Villa de Cieza`
+      
+
+            Email.send({
+                Host: "smtp.elasticemail.com",
+                Username: "garzi_06@hotmail.com",
+                Password: "E19EB49BA7118BB2C5CDCC52C6AEE4FF3968",
+                To: email,
+                From: "atalaya.ateneo@gmail.com",
+                Subject: "Gracias por inscribirte en el Club Atalaya",
+                Body: mensajeInscripción
+            })
+          
         })
         </script>
 
