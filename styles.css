@@ -37,7 +37,8 @@ body {
   }
 
 form {
-    max-width: 400px;
+    width:90%;
+    max-width: 500px;
     margin: 0 auto;
     font-family: 'Montserrat', sans-serif;
 }
@@ -92,6 +93,12 @@ button:hover {
     .right-side,
     .centrado {
         flex: 100%; /* Ocupar el 100% del ancho en dispositivos móviles */
+    }
+
+    form {
+        max-width: 400px;
+        margin: 0 auto;
+        font-family: 'Montserrat', sans-serif;
     }
 
 }
